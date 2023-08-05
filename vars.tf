@@ -11,3 +11,6 @@ variable "port_no" {
 variable "name" {
   default = "docdb"
 }
+
+variable "instance_count" {}
+variable "instance_class" {}
