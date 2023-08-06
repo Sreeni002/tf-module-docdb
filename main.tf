@@ -1,4 +1,4 @@
-resource "aws_db_subnet_group" "main" {
+resource "aws_docdb_subnet_group" "main" {
   name       = "${var.name}-${var.env}"
   subnet_ids = var.subnets
 
@@ -45,7 +45,7 @@ resource "aws_docdb_cluster" "main" {
   backup_retention_period = 5
   preferred_backup_window = "07:00-09:00"
   skip_final_snapshot     = true
-  db_subnet_group_name = aws_db_subnet_group.main.name
+  db_subnet_group_name    = aws_docdb_subnet_group.main.name
   db_cluster_parameter_group_name = aws_docdb_cluster_parameter_group.main.name
   storage_encrypted = true
   kms_key_id = var.kms_arn
